@@ -1,0 +1,41 @@
+{
+    IBClasses = (
+        {
+            CLASS = EPController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                iPodListDataSource = EPiPodListDataSource; 
+                iPodSelectView = NSView; 
+                listView = NSView; 
+                mainWindow = NSWindow; 
+                playListDataSource = EPOutlineDataSource; 
+                songListDataSource = EPTableDataSource; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = EPOutlineDataSource; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = EPOutlineView; LANGUAGE = ObjC; SUPERCLASS = NSOutlineView; }, 
+        {CLASS = EPTableDataSource; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = EPTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }, 
+        {
+            CLASS = EPiPodListDataSource; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {table = NSTableView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {continueUsingCurrentSelection = id; updateContinue = id; }; 
+            CLASS = EPiPodSelectController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                continueButton = id; 
+                listDataSource = id; 
+                listView = id; 
+                parentController = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

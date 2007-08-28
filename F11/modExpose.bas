@@ -160,7 +160,7 @@ Function nearestOffscreenPoint(screenCenter As POINT_TYPE, origRect As RECT) As 
     Dim yEdge As POINT_TYPE
     
     Dim edgeMargin As Integer
-    edgeMargin = 30
+    edgeMargin = 20
     
     ' use the center of the window
     mVec.x = (origRect.Left + origRect.Right) / 2 - screenCenter.x

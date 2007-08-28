@@ -1,8 +1,8 @@
-frmMain = 48, 122, 675, 954, C, 0, 0, 0, 0, C
-KeyboardHook = 23, 129, 364, 476, C
+frmMain = 196, 29, 823, 861, C, 110, 110, 825, 715, C
+KeyboardHook = 23, 129, 364, 476, 
 modSysTray = -356, 116, 441, 948, C
-modMain = 8, 78, 565, 505, 
-KeyboardHandler = 29, 127, 848, 959, C
-modExpose = 172, 109, 617, 941, C
+modMain = 114, 78, 933, 909, 
+KeyboardHandler = 29, 127, 848, 959, 
+modExpose = 172, 109, 999, 941, 
 modMultiMonitor = 0, 0, 0, 0, C
 win32geom = 0, 0, 0, 0, C

@@ -17,6 +17,16 @@ Option Explicit
 
 Private curState As Integer 'local copy
 Private enableRescan As Boolean
+Private privDeltaRate As Double
+
+
+Private Sub Class_Initialize()
+    enableRescan = True
+    curState = -1
+    privDeltaRate = 0.1
+End Sub
+
+
 
 'Public Property Let state(ByVal vData As Integer)
 '    curState = vData
@@ -33,6 +43,10 @@ End Property
 
 Public Property Get okToRescan() As Integer
     okToRescan = enableRescan
+End Property
+
+Public Property Let deltaRate(ByVal dr As Double)
+    privDeltaRate = dr
 End Property
 
 
@@ -86,7 +100,7 @@ Private Function activate() As Long
     End If
     
     frmMain.Timer1.Enabled = True
-    frmMain.expDelta = 0.1
+    frmMain.expDelta = privDeltaRate
     
     activate = True
 End Function
@@ -96,15 +110,10 @@ Private Function deactivate() As Long
     
     enableRescan = False
     With frmMain
-        .expDelta = -0.1
+        .expDelta = -privDeltaRate
         .Timer1.Enabled = True
     End With
     
     deactivate = True
 End Function
 
-
-Private Sub Class_Initialize()
-    enableRescan = True
-    curState = -1
-End Sub

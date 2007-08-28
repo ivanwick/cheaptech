@@ -2,16 +2,35 @@ VERSION 5.00
 Begin VB.Form frmMain 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "About F11"
-   ClientHeight    =   1875
-   ClientLeft      =   11910
-   ClientTop       =   1515
-   ClientWidth     =   4005
+   ClientHeight    =   2520
+   ClientLeft      =   7185
+   ClientTop       =   5955
+   ClientWidth     =   4440
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   1875
-   ScaleWidth      =   4005
-   StartUpPosition =   1  'CenterOwner
+   ScaleHeight     =   2520
+   ScaleWidth      =   4440
+   Begin VB.TextBox txtDelta 
+      Enabled         =   0   'False
+      Height          =   285
+      Left            =   3360
+      TabIndex        =   6
+      Text            =   "0.1"
+      Top             =   2160
+      Width           =   615
+   End
+   Begin VB.HScrollBar scrollDelta 
+      Height          =   255
+      LargeChange     =   2
+      Left            =   600
+      Max             =   10
+      Min             =   1
+      TabIndex        =   4
+      Top             =   2160
+      Value           =   1
+      Width           =   2655
+   End
    Begin VB.OptionButton optTopEdge 
       Caption         =   "Top edge"
       Height          =   315
@@ -34,6 +53,14 @@ Begin VB.Form frmMain
       Interval        =   1
       Left            =   120
       Top             =   120
+   End
+   Begin VB.Label Label3 
+      Caption         =   "Delta"
+      Height          =   255
+      Left            =   600
+      TabIndex        =   5
+      Top             =   1920
+      Width           =   2535
    End
    Begin VB.Image Image1 
       Height          =   375
@@ -130,10 +157,6 @@ End Sub
 
 
 
-'''
-Private Sub Image1_Click()
-Timer1.Enabled = True
-End Sub
 
 Private Sub mPopExit_Click()
     'called when user clicks the popup menu Exit command
@@ -146,6 +169,13 @@ Private Sub mPopAbout_Click()
     Me.WindowState = vbNormal
     Result = SetForegroundWindow(Me.hwnd)
     Me.Show
+End Sub
+
+Private Sub scrollDelta_Change()
+    Dim newDelta As Double
+    newDelta = scrollDelta.Value / scrollDelta.Max
+    modMain.keyhook.deltaRate = newDelta
+    txtDelta.Text = newDelta
 End Sub
 
 Private Sub Timer1_Timer()
@@ -164,7 +194,13 @@ Private Sub Timer1_Timer()
     End If
     End If
     
-    '''
-    Timer1.Enabled = False
+    ''' this is here so i could take screenshots
+    'Timer1.Enabled = False
+End Sub
+
+''' this is here so i could take screenshots
+''' (also the Image1 object was only necessary for that purpose.)
+Private Sub Image1_Click()
+Timer1.Enabled = True
 End Sub
 

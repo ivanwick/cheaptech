@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>F11.exe from cheaptech software</title>
+<script language="JavaScript">
+function animLoad()
+{
+animFwd = new Image();
+animRev = new Image();
+animFwd.src = 'anim-fwd.gif';
+animRev.src = 'anim-rev.gif';
+
+document.images['reveal-anim'].src = animRev.src;
+}
+</script>
+</head>
+<body onLoad="animLoad();">
+
+<h2>F11.exe from cheaptech software</h2>
+
+
+<div style="float:right; border: 1px solid black; padding:1em;background-color: #edf3fe; margin-left:2em;">
+<p>
+<img id="reveal-anim" 
+onMouseOver="document.images['reveal-anim'].src=animFwd.src;"
+onMouseOut="document.images['reveal-anim'].src=animRev.src;"
+/>
+<br/>
+mouse over
+</p>
+
+<p>
+<img src="keypress-dfa.png"/><br/>
+Implements a DFA<br/>
+so you know it's good.
+</p>
+</div>
+
+<p>
+All right one day I was sitting at my Windows 2000 workstation and I hit the F11 key expecting all of my open windows to <a href="http://www.apple.com/macosx/features/expose/">slide away to reveal the desktop</a>. Obviously, this didn't happen but for a good half second or so I couldn't figure out why.
+</p>
+
+<p>
+Don't let it happen to you!
+</p>
+
+<p>
+F11.exe puts an icon in the System Tray, activating the desktop reveal whenever you press the F11 key. A tap of the F11 key will toggle the desktop reveal, but if you hold the key down, the windows will come back to the center when you release.
+</p>
+
+<p>
+<a href="F11.exe">Download F11.exe</a><br/>
+<a href="F11_vb.zip">VB6 Source code</a><br/>
+</p>
+
+<p>
+I don't even know if I should have to apologize for the visual basic source code but it is bad.  In the interest of Rapid Application Development&trade; I made it extra cheap, meaning I don't understand the VB object model so pretty much everything in the project has global visibility so that the code could work together.
+</p>
+<p>
+I am in the process of rewriting this using MFC/C++.
+</p>
+<ul>
+<li>smaller compiled executable size (no need for vb runtime)</li>
+<li>higher-priority timer may improve window movement performance</li>
+<li>better object modeling</li>
+<li>harder crashes</li>
+</ul>
+
+
+<p>
+<a href="mailto:iwick@ucsd.edu">iwick@ucsd.edu</a><br/>
+<a href="http://microarrays.ucsd.edu/~ivan/">http://microarrays.ucsd.edu/~ivan/</a><br/>
+</p>
+
+</body>
+</html>

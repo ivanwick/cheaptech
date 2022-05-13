@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>cheapdns</title>
+</head>
+<body>
+<h2>cheapdns</h2>
+<p>
+IT'S SECURE BECAUSE IT'S HARD CODED(tm)
+</p>
+<p>
+at this point, cheapdns is a weekend project implementing part of the dns standard as a minimal dns server. And minimal in this context means cheap. and by cheap, i mean "only answers plain, single-question A queries. and in answering these (and it answers all of them, no matter what domain name is specified), it gives one hard-coded IPv4 address using hard-coded values for authority and TTL. several of the strncpys also have hardcoded max lengths."
+</p>
+
+<p>
+some amount of pains were taken to assure that though it may be cheap, and may have an almost undesirable amount of hardcoded behavior, this cheapness and behavioral defficiency would at least be consistent on unix-variant operating systems with different chip architectures. the code was compiled and tested on FreeBSD (i586), Solaris (sparc), MacOS X (ppc) and Linux (i586), and i don't believe any byte-order conversions have been neglected where they were necessary.
+</p>
+
+<h3>if its so cheap, then what is it good for?</h3>
+<p>
+Domain-authority dns serving an address for a virtual-hosting webserver. i.e. works well when queried by other nameservers. just don't point your host resolver directly at it.
+</p>
+
+<h3>it took you a whole weekend to write this? its cheap!</h3>
+<p>
+well, a few hours spread out over one weekend. reading, coding, debugging. here's my big-up list:
+<ul>
+ <li>big up reading
+ <ul>
+  <li>W Richard Stevens UNIX network programming</li>
+  <li>Beej's guide to network Programming</li>
+  <li>RFC 1035</li>
+ </ul>
+ </li>
+ <li>big up coding
+ <ul>
+  <li>vi</li>
+  <li>gcc</li>
+  <li>make &lt;3*</li>
+ </ul>
+ </li>
+ <li>big up debugging
+ <ul>
+  <li>tcpdump</li>
+  <li>ethereal</li>
+  <li>gdb</li>
+ </ul>
+ </li>
+</ul>
+make gets the heart-star award because i heart it
+</p>
+
+<p>
+
+<a href="cheapdns-source.tar.gz">cheapdns source code</a>
+</p>
+</body>
+</html>

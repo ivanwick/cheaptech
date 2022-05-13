@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<title>cheappod for Mac OS X</title>
+<style type="text/css">
+body {font-family: "Lucida Grande", verdana, "Sans Serif"; font-size:10pt;}
+#bodycontainer {width: 50em; margin: auto; padding:0px;}
+
+#headline {padding-bottom: 4em; padding-left: 4em; padding-right:2em; padding-top: 2em; font-weight: bold; }
+#headline #title {font-size: 3em; margin:0px; padding-top: 20px;}
+#headline #tagline {font-size: 1.6em; margin:0px; color: gray; }
+#headline #titlegraphic { float:left; margin-right: 2em; }
+
+h4 {margin-bottom:0px; font-size: 1em; }
+p {margin-top: 0px;}
+#introdesc {font-weight:bold;}
+
+#separator { clear:both;  margin-bottom: 1em; border-bottom: 1px solid black;}
+
+#bodytext { width: 32.5em; }
+
+#sidebar { float: right; margin-left:1em; margin-right:0px; width:16em; }
+
+#footerbox { text-align: center; border-top: 1px solid black; margin-top:2em; }
+
+.subbar { border: 1px solid black; }
+.subbar .title { background-color: #3674d6; color: #fff; font-weight: bold; text-align: center; }
+.subbar p { margin-top: 0em; margin-left: 0.2em; margin-right:0.2em; margin-bottom: 1em; font-size: 0.8em; }
+
+</style>
+</head>
+
+<body>
+<div id="bodycontainer">
+<div id="headline">
+<img id="titlegraphic" src="newicon-draft04.png" alt="cheappod icon"/>
+<div id="title">cheappod</div>
+<div id="tagline">because the name "Escape Pod" was already taken</div>
+</div>
+
+<div id="separator"></div>
+
+<div id="sidebar">
+
+<div class="subbar">
+<div class="title">
+Download
+</div>
+<p>
+<a href="cheappod-1.0.dmg"><img style="float:left" src="mounted-disk-image.png" alt="DMG" border="0" /></a>cheappod version 1.0<br/>
+<a href="cheappod-1.0.dmg">DMG</a><br/>
+</p>
+<p>
+source code<br/>
+<a href="cheappod-1.0-src.tar.gz">tar.gz</a>
+</p>
+</div>
+
+<p></p>
+
+<div class="subbar">
+<div class="title">
+Contact
+</div>
+<p>
+Ivan Wick, maintainer<br/>
+<a href="mailto:iwick@ucsd.edu">iwick@ucsd.edu</a><br/>
+</p>
+</div>
+
+<p></p>
+
+<div class="subbar">
+<div class="title">
+ToDo List
+</div>
+<p>
+Here are some logical extensions that would make the software more useful.
+</p>
+<p>
+<strong>Playlist Support</strong><br/>
+Requires significant additions to the parser code
+</p>
+<p>
+<strong>Multiple iPod Support</strong><br/>
+One window per iPod
+</p>
+
+<p>
+<strong>Localized Sorting</strong> <span style="float:right; margin-right:1em; color: red;"><em>fixed</em></span><br/>
+-[NSString localizedCompare:]<br/>
+This took about 20 seconds in Interface Builder to fix. I woder why I didn't see it before.
+</p>
+
+<p>
+<strong>Copy & Paste</strong><br/> 
+in case the user doesn't want to drag-n-drop
+</p>
+
+<p>
+<strong>Preserve Selection when Sort Descriptors Change</strong>
+</p>
+
+<p>
+<strong>Search Box</strong><br/>
+</p>
+
+<p>
+<strong>Parser Framework</strong><br/>
+Modularize the parser code into a separate, linked-in framework
+</p>
+
+</div>
+
+</div>
+
+
+<div id="bodytext">
+<p id="introdesc">
+cheappod allows you to select and copy songs out of your iPod's library and onto your computer.  Historic "upgrades" to iTunes removed this feature, but now, no worries!
+</p>
+
+<h4>DragDrop your nonstop HipHop, j-pop. or... drumnbop?</h4>
+<p>
+Copying files off of your iPod onto your computer is as easy as drag and drop. In fact, you can drag directly from cheappod into iTunes.
+</p>
+
+<p style="text-align:center;">
+<img src="songlist-screenshot.png" alt="screenshot" />
+</p>
+
+<img src="object-cube.png" style="float:right;" alt="object cube" />
+<h4>Cafe Mocha</h4>
+<p>
+If you like mochas, you know that Java's better with some Cocoa (zing!).  Though written in Objective-C, cheappod harnesses the synergy of these two technologies by leveraging the laziness-inducing automatic memory management of Java and coding it up with all the platform independence of Mac OS X Cocoa. Also the term "autorelease hemorrhaging" just popped into my head while writing this.  I suppose it might be something like memory leaking, except way more dramatic and object oriented.
+</p>
+
+<img src="windowbutton-gnu.png" style="float:left;" alt="GNU Mac OS X" />
+<h4>Use the Source</h4>
+<p>
+You can also download and modify the source code to this project, which is released under the GPL.  Here's a bonus: the underlying code that parses the iTunesDB file also compiles and runs just fine with GNUStep on i586 Linux as well as with Cocoa on my G3 PowerBook (which means I got all the important endian conversions right!).
+</p>
+
+
+<h4>Sleek Wikis</h4>
+<p>
+I camped out on the <a href="http://ipodlinux.org/">iPodLinux Wiki</a> website while i was writing the parser.  <a href="http://ipodlinux.org/ITunesDB">http://ipodlinux.org/ITunesDB</a> is an excellent, detailed description of the iTunesDB file format.  Also, much of the terminology used in the code mirrors the wiki's terms. Plus <a href="http://cocoadev.com/">CocoaDev</a> helped me develop a feel (taste?) for Cocoa programming on Mac OS X.
+</p>
+
+
+</div><!-- bodytext -->
+
+<div id="footerbox">
+<p>
+<a href="mailto:iwick@ucsd.edu">contact ivan</a>
+|
+<a href="http://microarrays.ucsd.edu/~ivan/cheaptech/">cheaptech hompage</a>
+|
+<a href="http://microarrays.ucsd.edu/~ivan/">ivan's homepage</a>
+</p>
+<p>
+&copy; 2005 Ivan Wick
+</p>
+</div>
+
+</div><!-- bodycontainer -->
+</body>
+
+
+</html>

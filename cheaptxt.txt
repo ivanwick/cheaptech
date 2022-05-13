@@ -1,0 +1,76 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+
+## cheaptxt
+##
+## a script that queries the cell phone provider's web-SMS gateway
+## page and sends a text message. Usually their page does not send
+## to other providers' phones. also, this (web request) is not a
+## documented/standardized interface so hopefully they won't
+## change it anytime soon!
+##
+## to use, pipe some text into the stdin of cheaptxt (not too long,
+## this script doesn't check the length of the text you supply),
+## providing the 10-digit area-code-and-phone-number as the first
+## (only) command line argument.
+##
+## example:
+## echo -e "NO GAMES\nNO INTERNET\nNO SKULLS" | cheaptxt 2125551212
+##
+## tips:
+## - use this script in a crontab if you need a reminder
+## - use as an alert with a log analyzer tool
+## - the above but kick it cheap-school with this (in bash):
+##     tail -n 0 -f /var/log/xferlog \
+##     | grep --line-buffered $FILE_OR_USER_TO_WATCH \
+##     | (while true
+##        do
+##          perl -e '$_ = <>;
+##                   @_ = split/ +/;
+##                   $_ = "xferlog: $_[13] $_[8] $_[6]\n";
+##                   print STDERR $_;
+##                   print $_;' \
+##          | cheaptxt $YOUR_PHONE_NUMBER
+##        done)
+## 
+##   or slap together something similar for whichever log file
+##   you're interested in
+##
+## 20080527: changes for Sprint
+
+use LWP::UserAgent;
+use URI::Escape;
+
+my %postvars;
+my $poststr;
+my $ua;
+my $req;
+
+# Create a user agent object
+$ua = LWP::UserAgent->new;
+$ua->agent("cheaptxt. HARDCODED ON PURPOSE!");
+
+# This is in order to set some cookies which I guess the confirm page
+# checks before sending the text message.
+$ua->cookie_jar({});
+$ua->get('http://messaging.sprintpcs.com/textmessaging/compose');
+
+$postvars{'phoneNumber'} = $ARGV[0];
+$postvars{'callbackNumber'} = '';
+
+# put stdin into the message variable (escape it for the request)
+while(<STDIN>)
+{   $postvars{'message'} .= $_; # uri_escape($_);
+}
+
+my $res = $ua->post(
+    'http://messaging.sprintpcs.com/textmessaging/composeconfirm',
+    'Content' => \%postvars);
+
+## you can uncomment the following line in order to debug
+## print $res->content;
+
+# return the outcome of the response
+exit ($res->is_success);
